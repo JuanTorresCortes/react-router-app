@@ -6,7 +6,8 @@
 // and render the form inputs and a submit button.
 import React from "react";
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";/////////////////////
+import {v4 as uuid } from "uuid"
 
 // Define the Form component
 const Form = () => {
@@ -14,6 +15,8 @@ const Form = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
+
+  const navigate = useNavigate()/////////////////////  invoke useNavigate with var
 
   // Access the setBlogs function from the outlet context
   const { setBlogs } = useOutletContext();
@@ -26,7 +29,7 @@ const Form = () => {
         title,
         content,
         author,
-        id: previousState.length + 1,
+        id: uuid(),
       };
       return [...previousState, newBlog];
     });
@@ -35,21 +38,26 @@ const Form = () => {
     setTitle("");
     setContent("");
     setAuthor("");
+
+    navigate("/")////////////////////////////////// Navigate back to home page
   };
 
   return (
     <div
       style={{
+        margin: "1rem",
+        padding: "1rem",
         display: "flex",
         flexDirection: "column",
         width: "30%",
         border: "3px solid blue",
+        
       }}
     >
-      {/* Prompt: This is the Blog Form */}
+      {/* This is the Blog Form */}
       <h1>Blog Form</h1>
 
-      {/* Prompt: Input field for blog title */}
+      {/*  Input field for blog title */}
       <input
         type="text"
         value={title}
@@ -58,7 +66,7 @@ const Form = () => {
       />
       <br />
 
-      {/* Prompt: Text area for blog content */}
+      {/* Text area for blog content */}
       <textarea
         type="textBox"
         value={content}
@@ -67,7 +75,7 @@ const Form = () => {
       />
       <br />
 
-      {/* Prompt: Input field for blog author */}
+      {/*  Input field for blog author */}
       <input
         type="text"
         value={author}
@@ -76,8 +84,8 @@ const Form = () => {
       />
       <br />
 
-      {/* Prompt: Button for submitting the form */}
-      <button onClick={handleOnSubmit}>submit</button>
+      {/*  Button for submitting the form */}
+      <button onClick={handleOnSubmit} style={{backgroundColor: "green"}} >submit</button>
     </div>
   );
 };

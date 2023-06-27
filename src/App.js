@@ -17,11 +17,11 @@ function App() {
 
   return (
     <div className="App">
-      {/* Prompt: Render the title */}
+      {/* Render the title */}
       <h1>App Component</h1>
-      {/* Prompt: Render the navigation bar */}
+      {/* Render the navigation bar */}
       <NavBar />
-      {/* Prompt: Render the nested routes */}
+      {/* Render the nested routes */}
       <Outlet context={{ blogs, setBlogs }} />
     </div>
   );

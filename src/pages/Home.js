@@ -13,13 +13,16 @@ const Home = () => {
   const { blogs } = useOutletContext();
 
   return (
-    <div>
-      {/* Prompt: This is the Home page */}
+    <div className="home">
+      {/* This is the Home page */}
       <h1>Home</h1>
-      {/* Prompt: Loop over blogs and render a BlogCard for each */}
+      <div>
+        {/* Loop over blogs and render a BlogCard for each */}
       {blogs.map((blog) => (
-        <BlogCard blog={blog} />
+        <BlogCard key={blog.id} blog={blog} /> // Must not forget to pass Key 
       ))}
+      </div>
+      
     </div>
   );
 };

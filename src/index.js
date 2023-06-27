@@ -10,6 +10,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./pages/Home";
 import Form from "./components/Form";
+import EditBlog from "./components/EditBlog";
 
 // Import routing related modules
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "form",
         element: <Form />,
+      },
+      {
+        path: "blog/:id/edit",
+        element: <EditBlog/>,
       },
     ],
   },
